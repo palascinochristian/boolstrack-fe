@@ -69,22 +69,35 @@ export default function AlbumPage() {
     >
       {/* overlay scuro */}
       {artist && artist.background_img && (
-        <div className="absolute inset-0 bg-black/70 -z-10"></div>
+        <div className="absolute inset-0 bg-black/60 z-10"></div>
       )}
-
-      <main className="relative z-10 flex-1 px-6 sm:px-10 md:px-16 py-16 flex flex-col">
+      <main className="relative z-10 flex-1 px-6 sm:px-10 md:px-16 py-16 flex flex-col justify-center">
         <div
           data-aos="fade-down"
-          className="mb-12 max-w-4xl flex items-center gap-8"
+          className="max-w-4xl flex items-center gap-8 bg-[#111]/60 rounded-lg p-5"
         >
           <img
             src={coverUrl}
             alt={album.title}
             className="w-36 h-36 sm:w-48 sm:h-48 rounded-lg object-cover border-4 border-[#F26722]"
           />
-          <h1 className="text-6xl sm:text-8xl font-extrabold text-[#F26722] leading-tight drop-shadow-lg select-none">
-            {album.title}
-          </h1>
+          <div>
+            <h1 className="text-6xl sm:text-8xl font-extrabold text-[#F26722] leading-tight drop-shadow-lg select-none">
+              {album.title}
+            </h1>
+            {album.artist.name && (
+              <p className="text-white text-xl sm:text-xl mt-2 tracking-wide">
+                <span className="text-[#F26722] text-xl">Artista: </span>
+                {album.artist.name}
+              </p>
+            )}
+            {album.genre && (
+              <p className="text-white text-xl sm:text-xl mt-2 tracking-wide">
+                <span className="text-[#F26722] text-xl">Genere: </span>
+                {album.genre}
+              </p>
+            )}
+          </div>
         </div>
       </main>
 

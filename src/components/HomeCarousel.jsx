@@ -7,7 +7,7 @@ import { LuMousePointerClick } from "react-icons/lu";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const HomeCarousel = () => {
+export default function HomeCarousel() {
   const [albums, setAlbums] = useState([]);
   const [artists, setArtists] = useState([]);
   const navigate = useNavigate();
@@ -20,11 +20,13 @@ const HomeCarousel = () => {
           axios.get("/artists"),
         ]);
 
+        //Salvo solamente artisti e album che hanno la cover/foto profilo
         const albumCover = albumsResponse.data.filter((album) => album.cover);
         const artistImg = artistsResponse.data.filter(
           (artist) => artist.profile_img
         );
 
+        // Prendo i primi 6
         setAlbums(albumCover.slice(0, 6));
         setArtists(artistImg.slice(0, 6));
       } catch (error) {
@@ -35,11 +37,12 @@ const HomeCarousel = () => {
     loadData();
   }, []);
 
+  //Costruisco il link cliccabile
   const handleClick = (type, id) => {
     navigate(`/${type}/${id}`);
   };
 
-  // Impostazioni per lo Slider
+  // Impostazioni per il componente Slider
   const settings = {
     dots: false,
     arrows: false,
@@ -66,6 +69,8 @@ const HomeCarousel = () => {
           </span>
         </h3>
       </Link>
+
+      {/* Slider artisti */}
       <Slider {...settings}>
         {artists.map((artist) => (
           <div
@@ -82,7 +87,7 @@ const HomeCarousel = () => {
           </div>
         ))}
       </Slider>
-
+      {/* Slider Album */}
       <Slider {...settings}>
         {albums.map((album) => (
           <div
@@ -104,6 +109,4 @@ const HomeCarousel = () => {
       </Slider>
     </div>
   );
-};
-
-export default HomeCarousel;
+}

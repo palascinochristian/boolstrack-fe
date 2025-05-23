@@ -5,9 +5,9 @@ import Footer from "../components/Footer";
 
 export default function DefaultLayout() {
   return (
-    <div className="text-white font-sans bg-[url('/images/bg.png')] bg-no-repeat bg-center bg-cover bg-fixed text-white font-sans">
+    <div className="min-h-screen flex flex-col text-white font-sans bg-[url('/images/bg.png')] bg-no-repeat bg-center bg-cover bg-fixed">
       <Header />
-      <main>
+      <main className="flex-grow">
         <Outlet />
       </main>
       <Footer />

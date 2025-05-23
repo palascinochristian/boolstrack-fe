@@ -12,7 +12,9 @@ export default function Hero() {
         playsInline
       ></video>
       <div className="absolute top-0 left-0 w-full h-full bg-black/60 flex flex-col items-center justify-center text-center p-4">
+        {/* Logo Animato */}
         <Logo size="w-190 h-auto" animate={true} />
+
         <h1 className="text-4xl md:text-6xl font-bold text-[#F26722] drop-shadow-md">
           Scopri. Organizza. Ama la musica.
         </h1>
@@ -21,6 +23,7 @@ export default function Hero() {
           semplice e moderno.
         </p>
       </div>
+
       {/* Bottone per scrollare */}
       <a
         href="#intro"

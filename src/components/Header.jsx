@@ -9,6 +9,7 @@ export default function Header() {
   return (
     <header className="p-4 px-10 bg-[#0B121D] shadow-md sticky top-0 z-50">
       <div className="flex justify-between items-center">
+        {/* LOGO */}
         <Logo size="w-50 h-auto" />
 
         {/* Bottone hamburger (mobile only) */}
