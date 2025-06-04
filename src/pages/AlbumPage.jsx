@@ -103,7 +103,7 @@ export default function AlbumPage() {
 
       <aside className="relative z-10 w-full lg:w-56 bg-[#111]/70 backdrop-blur-md py-8 px-6 lg:px-4 lg:py-10 overflow-y-auto">
         <h2 className="text-center text-sm sm:text-base text-white/70 mb-4">
-          CANZONI
+          ELENCO BRANI
         </h2>
 
         {songs.length > 0 ? (

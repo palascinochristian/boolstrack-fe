@@ -41,27 +41,29 @@ export default function ArtistPage() {
       {/* Contenuto principale */}
       <main className="relative z-10 flex-1 px-6 sm:px-10 md:px-16 py-16">
         {/* Intestazione artista */}
-        <div
-          data-aos="fade-down"
-          className="flex items-center gap-6 flex-wrap mb-12"
-        >
-          <img
-            src={profileUrl}
-            alt={artist.name}
-            className="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-4 border-[#F26722]"
-          />
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-[#F26722] leading-tight">
-            {artist.name}
-          </h1>
-        </div>
+        <div className="bg-black/50 p-5 w-full max-w-5xl rounded-2xl">
+          <div
+            data-aos="fade-down"
+            className="flex items-center gap-6 flex-wrap mb-12 rounded"
+          >
+            <img
+              src={profileUrl}
+              alt={artist.name}
+              className="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-4 border-[#F26722]"
+            />
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-[#F26722] leading-tight">
+              {artist.name}
+            </h1>
+          </div>
 
-        {/* Biografia */}
-        <p
-          data-aos="fade-up"
-          className="text-white/90 leading-relaxed max-w-3xl text-base sm:text-lg"
-        >
-          {artist.bio}
-        </p>
+          {/* Biografia */}
+          <p
+            data-aos="fade-up"
+            className="text-white/90 leading-relaxed max-w-3xl text-base sm:text-lg"
+          >
+            {artist.bio}
+          </p>
+        </div>
       </main>
 
       {/* Sidebar con gli album */}

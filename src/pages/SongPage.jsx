@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "../api/axios";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -44,18 +44,28 @@ export default function SongPage() {
           className="lg:w-1/3 flex flex-col items-center lg:items-start"
           data-aos="fade-right"
         >
-          <img
-            src={coverUrl}
-            alt={song.album.title}
-            className="w-64 h-64 object-cover rounded-xl border-4 border-[#F26722] shadow-lg"
-          />
+          {" "}
+          <Link to={`/album/${song.album.id}`}>
+            <img
+              src={coverUrl}
+              alt={song.album.title}
+              className="w-64 h-64 object-cover rounded-xl border-4 border-[#F26722] shadow-lg"
+            />
+          </Link>
           <h1 className="text-3xl sm:text-4xl font-bold text-[#F26722] mt-6 text-center lg:text-center">
             {song.title}
           </h1>
-          <h2 className="text-xl text-white/80 mt-2 text-center lg:text-center">
-            {artistName}
-          </h2>
-
+          <Link to={`/artist/${song.album.artist.id}`}>
+            <h2 className="text-xl text-white/80 mt-2 text-center lg:text-center hover:text-[#F26722]">
+              {artistName}
+            </h2>
+          </Link>
+          <Link
+            to={`/album/${song.album.id}`}
+            className="mt-6 inline-block bg-[#F26722] text-white px-6 py-2 rounded-full font-semibold hover:bg-[#d6551c] transition"
+          >
+            Torna all’album
+          </Link>
           {embedUrl ? (
             <div data-aos="zoom-in" className="w-full max-w-xl mt-12">
               <iframe
@@ -75,7 +85,7 @@ export default function SongPage() {
           className="lg:w-2/3 bg-white/5 backdrop-blur-md p-6 sm:p-10 rounded-xl shadow-lg max-h-[80vh] overflow-y-auto scrollbar-hide"
           data-aos="fade-left"
         >
-          <pre className="whitespace-pre-wrap text-base sm:text-lg leading-loose font-medium text-white/90 scrollbar-hide">
+          <pre className="whitespace-pre-wrap text-base sm:text-lg leading-loose font-medium text-white/90">
             {song.lyrics}
           </pre>
         </div>
